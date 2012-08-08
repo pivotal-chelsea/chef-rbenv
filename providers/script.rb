@@ -57,7 +57,7 @@ def build_script_code
 end
 
 def build_script_environment
-  script_env = { 'RBENV_ROOT' => rbenv_root }
+  script_env = { 'RBENV_ROOT' => rbenv_root, 'RBENV_DIR' => rbenv_root }
   if new_resource.environment
     script_env.merge!(new_resource.environment)
   end

@@ -79,7 +79,7 @@ class Chef
 
         bash "Initialize rbenv (#{opts[:user] || 'system'})" do
           code  %{PATH="#{prefix}/bin:$PATH" #{prefix}/libexec/rbenv-init -}
-          environment({'RBENV_ROOT' => prefix}.merge(init_env))
+          environment({'RBENV_ROOT' => prefix,'RBENV_DEBUG' => '1', 'RBENV_DIR' => prefix}.merge(init_env))
           user  opts[:user]   if opts[:user]
           group opts[:group]  if opts[:group]
         end
